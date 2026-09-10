@@ -167,4 +167,187 @@
 </script>
 
 </body>
-</html>
+</html><audio controls>
+  <source src="لینک_یان_ناوی_فایلی_دەنگی.mp3" type="audio/mpeg">
+  وێبگەڕەکەی ئێوە پشتگیری ئەم فایلی دەنگە ناکات.
+</audio><!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>پلەیری دەنگی و ڕووکاری کارا</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  body {
+    background: #0f172a;
+    color: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .player-box {
+    width: min(100%, 400px);
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 20px;
+    color: #38bdf8;
+    margin-bottom: 8px;
+  }
+
+  .desc {
+    font-size: 13px;
+    color: #94a3b8;
+    margin-bottom: 25px;
+  }
+
+  .track-btn {
+    display: block;
+    width: 100%;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    color: #f8fafc;
+    padding: 14px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+
+  .track-btn:hover {
+    background: rgba(56, 189, 248, 0.2);
+    border-color: #38bdf8;
+  }
+
+  .track-btn.active {
+    background: #38bdf8;
+    color: #0f172a;
+  }
+
+  .main-play-btn {
+    background: linear-gradient(45deg, #0284c7, #38bdf8);
+    border: none;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    margin-top: 15px;
+    box-shadow: 0 10px 20px rgba(56, 189, 248, 0.4);
+    transition: transform 0.2s;
+  }
+
+  .main-play-btn:active {
+    transform: scale(0.95);
+  }
+
+  .status {
+    margin-top: 20px;
+    font-size: 13px;
+    color: #38bdf8;
+  }
+</style>
+</head>
+<body>
+
+<div class="player-box">
+  <h2>🎵 پلەیری دەنگی کارა</h2>
+  <div class="desc">یەکێک لە گۆرانییەکان هەڵبژێرە بۆ لێدان</div>
+
+  <!-- لیستی دەنگەکان -->
+  <button class="track-btn" onclick="playTrack(0)">گۆرانی یەکەم (نموونەی ئۆنلاین)</button>
+  <button class="track-btn" onclick="playTrack(1)">گۆرانی دووەم (نموونەی ئۆنلاین)</button>
+
+  <!-- دوگمەی سەرەکی بۆوەستان و لێدان -->
+  <button class="main-play-btn" id="playToggleBtn" onclick="togglePlay()">▶</button>
+
+  <div class="status" id="statusText">ئامادەیە...</div>
+</div>
+
+<script>
+  // لێرەدا دەتوانیت لینکی ڕاستەقینەی فایلی دەنگ (mp3.) دابنێیت
+  const audioTracks = [
+    "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+    "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+  ];
+
+  let currentAudio = new Audio(audioTracks[0]);
+  let currentTrackIndex = 0;
+  let isPlaying = false;
+
+  function playTrack(index) {
+    currentTrackIndex = index;
+    currentAudio.src = audioTracks[index];
+    currentAudio.play();
+    isPlaying = true;
+    updateUI();
+  }
+
+  function togglePlay() {
+    if (isPlaying) {
+      currentAudio.pause();
+      isPlaying = false;
+    } else {
+      currentAudio.play();
+      isPlaying = true;
+    }
+    updateUI();
+  }
+
+  function updateUI() {
+    const btn = document.getElementById('playToggleBtn');
+    const status = document.getElementById('statusText');
+    const buttons = document.querySelectorAll('.track-btn');
+
+    buttons.forEach((b, i) => {
+      if (i === currentTrackIndex && isPlaying) {
+        b.classList.add('active');
+      } else {
+        b.classList.remove('active');
+      }
+    });
+
+    if (isPlaying) {
+      btn.innerText = "⏸";
+      status.innerText = `🎶 ئێستا لێدەدرێت: گۆرانی ژمارە ${currentTrackIndex + 1}`;
+    } else {
+      btn.innerText = "▶";
+      status.innerText = "⏸ دەنگ وەستا";
+    }
+  }
+
+  currentAudio.addEventListener('ended', () => {
+    isPlaying = false;
+    updateUI();
+  });
+</script>
+
+</body>
+</html> <audio></audio>const audioTracks = [
+  "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+  "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+];
+
+
+
+
